@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #9198e5, #e66465);
+  min-height: 100vh;
+  font-size: large;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* min-height: 100vh; */
+  /* overflow: hidden; */
+}
+
+.clock {
+  height: 400px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 100%;
+  border: 3px solid black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hand {
+  --rotation: 0;
+  position: absolute;
+  background-color: black;
+  bottom: 50%;
+  border-radius: 5px 5px 0px 0px;
+  transform: rotate(calc(var(--rotation) * 1deg));
+  transform-origin: bottom; //keeps bottom part as it is and rotates only the top part
+  z-index: 10; //to set hands always on top of numbers
+}
+
+.hour {
+  height: 25%;
+  width: 7px;
+}
+.minute {
+  height: 30%;
+  width: 4px;
+}
+.second {
+  height: 40%;
+  width: 2px;
+  background-color: red;
+  /* z-index: 50; */
+}
+
+/* my way */
+/* .ring {
+  background-color: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  bottom: 50%;
+  position: absolute;
+  z-index: 11;
+} */
+
+/* tut way */
+.clock::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  width: 12px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  z-index: 11;
+  transform: translate(-50%, -50%); /* move position on two axis */
+}
+
+.digital-clock {
+  width: 35%;
+  height: 10%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  position: absolute;
+  bottom: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.digital-time {
+  font-size: larger;
+  font-weight: 700;
+  color: #e66465;
+}
+
+.date {
+  transform: rotate(-95deg);
+  transform-origin: 0 0;
+  margin-top: 60px;
+  font-size: 1rem;
+  color: #e66465;
+}
+
+.number {
+  --rotation--: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  /* text-align: center; can do this insted of dis flex */
+  transform: rotate(var(--rotation--));
+  /* align-items: center; */
+  font-size: 1.75rem;
+}
+
+.number1 {
+  transform: rotate(30deg);
+}
+.number2 {
+  --rotation--: 60deg;
+}
+.number3 {
+  --rotation--: 95deg;
+}
+.number4 {
+  --rotation--: 120deg;
+}
+.number5 {
+  --rotation--: 150deg;
+}
+.number6 {
+  --rotation--: 180deg;
+}
+.number7 {
+  --rotation--: 210deg;
+}
+.number8 {
+  --rotation--: 240deg;
+}
+.number9 {
+  --rotation--: 270deg;
+}
+.number10 {
+  --rotation--: 300deg;
+}
+.number11 {
+  --rotation--: 330deg;
+}
